@@ -124,6 +124,7 @@ export default function PatientDetails({ params }) {
     </MainDocLayout>
   );
 }
+
 const Header = ({ totalRecords, name }) => (
   <div className="flex justify-between items-center px-6 border-b py-4">
     <div className="flex items-center gap-4">

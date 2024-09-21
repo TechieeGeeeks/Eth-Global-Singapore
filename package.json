@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ethsign/sp-sdk": "^0.7.5",
     "@hookform/resolvers": "^3.9.0",
     "@privy-io/react-auth": "^1.86.0",
     "@radix-ui/react-accordion": "^1.2.0",
@@ -44,6 +45,7 @@
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.3.0",
+    "ethers": "^5.7.2",
     "framer-motion": "^11.5.6",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.441.0",
