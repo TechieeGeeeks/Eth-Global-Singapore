@@ -1,7 +1,8 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
-import PrivyWrapper from "@/privy/privyProvider";
+import DynamicWrapper from "@/dynamic/dynamicWrapper";
+import ReduxProvider from "@/redux/reduxProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -17,10 +18,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <PrivyWrapper>
-          {children}
+        <DynamicWrapper>
+          <ReduxProvider>{children}</ReduxProvider>
           <Toaster />
-        </PrivyWrapper>
+        </DynamicWrapper>
       </body>
     </html>
   );

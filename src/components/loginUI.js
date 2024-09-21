@@ -12,6 +12,13 @@ import {
 import { ArrowRight } from "lucide-react";
 import { usePrivy } from "@privy-io/react-auth";
 import { useRouter } from "next/navigation";
+import {
+  EthersExtension,
+  DynamicContextProvider,
+  EthereumWalletConnectors,
+  mergeNetworks,
+  DynamicConnectButton,
+} from "../lib/dynamic";
 
 export const LoginUI = () => {
   const { login } = usePrivy();
