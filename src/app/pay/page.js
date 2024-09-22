@@ -13,6 +13,7 @@ import {
 import { Contract, ethers } from "ethers";
 import { motion } from "framer-motion";
 import { useDynamicContext } from "@dynamic-labs/sdk-react-core";
+import axios from "axios";
 
 const Pay = ({ smartContractAccountAddress, signer, smartAccount }) => {
   const {
@@ -82,11 +83,7 @@ const Pay = ({ smartContractAccountAddress, signer, smartAccount }) => {
     } = formValues;
 
     const addressArray = [address1, address2, address3];
-    const encryptedAmountArray = [
-      await fhevmInstance.encrypt32(Number(amount1)),
-      await fhevmInstance.encrypt32(Number(amount2)),
-      await fhevmInstance.encrypt32(Number(amount3)),
-    ];
+
     const encryptedAmount = await fhevmInstance.encrypt32(Number(amount1));
     // Using ethers.js AbiCoder to encode the encrypted value
 
@@ -114,25 +111,29 @@ const Pay = ({ smartContractAccountAddress, signer, smartAccount }) => {
 
     console.log(addressArray);
 
-    const txData = await tokenBridgeContract.distributeFunds(
-      address1,
-      address2,
-      address3,
-      await fhevmInstance.encrypt32(Number(amount1))
-    );
+    try {
+      const txData = tokenBridgeContract.distributeFunds(
+        address1,
+        address2,
+        address3,
+        await fhevmInstance.encrypt32(Number(amount1))
+      );
+    } catch (error) {
+      console.log(error);
+    }
 
     // await userOpResponse.wait(1);
 
     try {
       const { data } = await axios.post(
-        "https://d944q8vk-8081.inc1.devtunnels.ms/distribute-funds",
+        "http://13.201.185.94:3000/distribute-funds",
         {
           amount1: Number(amount1),
           user: smartContractAccountAddress,
           userAddress1: address1,
           userAddresses2: address2,
           userAddresses3: address3,
-          encryptedData: paddedBytesFor1,
+          encryptedData: ["svsd"],
         }
       );
       console.log(data);
