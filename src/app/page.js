@@ -166,14 +166,14 @@ const Home = ({ signer, smartContractAccountAddress }) => {
     }
   }, [signer, ready, authenticated, w0]);
 
-  const getFhevmInstance = async () => {
-    const instance = await getInstance();
-    setFhevmInstance(instance);
-  };
+  // const getFhevmInstance = async () => {
+  //   const instance = await getInstance();
+  //   setFhevmInstance(instance);
+  // };
 
-  useEffect(() => {
-    getFhevmInstance();
-  }, []);
+  // useEffect(() => {
+  //   getFhevmInstance();
+  // }, []);
 
   useEffect(() => {
     if (tokens !== "0") {
