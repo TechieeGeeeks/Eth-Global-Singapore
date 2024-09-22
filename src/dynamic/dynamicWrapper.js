@@ -8,19 +8,19 @@ import { EthereumWalletConnectors } from "@dynamic-labs/ethereum";
 
 const myEvmNetworks = [
   {
-    blockExplorerUrls: ["https://explorer-holesky.morphl2.io"],
-    chainId: 2810,
-    chainName: "Morph Holesky Testnet",
-    iconUrls: ["https://avatars.githubusercontent.com/u/132543920?v=4"], // No icon URL was provided
-    name: "Morph Holesky Testnet",
+    blockExplorerUrls: ["https://base-sepolia.blockscout.com"],
+    chainId: 84532,
+    chainName: "Base Sepolia Testnet",
+    iconUrls: [], // No icon URL was provided
+    name: "Base Sepolia Testnet",
     nativeCurrency: {
       decimals: 18, // Assuming 18 decimals as it's standard for ETH
       name: "Ether",
       symbol: "ETH",
     },
-    networkId: 2810, // Assuming networkId is the same as chainId
-    rpcUrls: ["https://rpc-quicknode-holesky.morphl2.io"],
-    vanityName: "Morph Holesky",
+    networkId: 84532, // Assuming networkId is the same as chainId
+    rpcUrls: ["https://rpc.notadegen.com/base/sepolia"],
+    vanityName: "BaseSepolia",
   },
 ];
 
